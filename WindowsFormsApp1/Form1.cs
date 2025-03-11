@@ -13,8 +13,6 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         private List<Student> students = new List<Student>();
-        private List<Advisor> advisors = new List<Advisor>();
-
         public Form1()
         {
             InitializeComponent();
@@ -41,14 +39,6 @@ namespace WindowsFormsApp1
 
                 Student student = new Student(studentID, name, major, grade);
                 AddStudent(student);
-
-                // Optionally, associate with an advisor
-                string advisorName = txtAdvisorName.Text;
-                Advisor advisor = advisors.Find(a => a.Name == advisorName);
-                if (advisor != null)
-                {
-                    advisor.AddStudent(student);
-                }
 
                 MessageBox.Show("Student added");
             }
@@ -97,11 +87,6 @@ namespace WindowsFormsApp1
         private void AddStudent(Student student)
         {
             students.Add(student);
-        }
-
-        private void AddAdvisor(Advisor advisor)
-        {
-            advisors.Add(advisor);
         }
     }
 }
